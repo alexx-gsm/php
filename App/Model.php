@@ -3,13 +3,13 @@
 namespace App;
 
 
-class Model
+abstract class Model
 {
-    const Table = '';
+    const TABLE = '';
 
     public static function findAll()
     {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query('SELECT * FROM ' . static::TABLE, static::class);
     }
 }
