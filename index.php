@@ -1,7 +1,12 @@
 <?php
 
+use \App\Models\User;
+
 require __DIR__ . '/autoload.php';
 
-$users = \App\Models\User::findAll();
+//$users = User::findAll();
 
-var_dump($users);
+$user = User::findById(3);
+$user->name = 'Maximus';
+
+$user->delete(3);

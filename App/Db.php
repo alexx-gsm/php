@@ -14,14 +14,14 @@ class Db
         $this->dbh = new \PDO('mysql:host=127.0.0.1; dbname=php', 'alexx', '15987');
     }
 
-    public function execute($sql)
+    public function execute($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($params);
         return $res;
     }
 
-    public function query($sql, $class)
+    public function query($sql, $class=\stdClass::class)
     {
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute();
